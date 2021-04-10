@@ -7,7 +7,6 @@ const BondSchema = new mongoose.Schema({
     },
     description: String,
     price: {
-        currency: "USD",
         type: Number,
         default: 0,
         get: getPrice,
@@ -27,11 +26,11 @@ const BondSchema = new mongoose.Schema({
 
 })
 function getPrice(num){
-    return (num/100).toFixed(2);
+    return num;
 }
 
 function setPrice(num){
-    return num*100;
+    return num;
 }
 
 module.exports = mongoose.model('Bonds', BondSchema);
